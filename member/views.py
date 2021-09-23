@@ -238,3 +238,7 @@ def delete_lecture(req):
     except Exception as err:
         print(err)
         return HttpResponse('삭제 실패')
+
+# 강의 추가
+def lecture_add(req):
+    return render(req, 'lecture_add.html')
