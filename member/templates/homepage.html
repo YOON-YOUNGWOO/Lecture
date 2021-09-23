@@ -136,6 +136,11 @@
                 $("#logout_btn").removeClass('d-none');
                 $("#mypage").removeClass('d-none');
             </script>
+            {% if session_root %}
+                <script>
+                    $("#add").removeClass('d-none');
+                </script>
+            {% endif %}
         {% endif %}
         {% if messages %}
             {% for message in messages %}

@@ -9,6 +9,8 @@ import os
 # 첫페이지
 def home(req):
     if req.session.get('id'):
+        if req.session.get('id') == "root":
+            return render(req, 'homepage.html',{'session_root':'root','session_ok':'ok'})
         return render(req, 'homepage.html',{'session_ok':'ok'})
     else:
         return render(req, 'homepage.html')
@@ -87,6 +89,8 @@ def editinfo(req):
     try:
         logged_member =Member.objects.get(memberid=session_ck)
         if session_ck:
+            if req.session.get('id') == "root":
+                return render(req, 'editinfo.html',{'memberinfo':logged_member,'session_root':'root','session_ok':'ok'})
             return render(req, 'editinfo.html',{'memberinfo':logged_member,'session_ok':'ok'})
         else:
             return redirect('../login/')
@@ -105,6 +109,8 @@ def profile_edit(req):
         logged_member = Member.objects.get(memberid=session_ok)
         if logged_member:
             if pw1 != pw2:
+                if req.session.get('id') == "root":
+                    return render(req, 'editinfo.html',{'err':'비밀번호가 틀립니다.', 'memberinfo':logged_member,'session_root':'root','session_ok':'ok'})
                 return render(req, 'editinfo.html',{'err':'비밀번호가 틀립니다.', 'memberinfo':logged_member,'session_ok':'ok'})
             else:
                 logged_member.memberpw = pw1
@@ -128,6 +134,7 @@ def profile(req):
         a = {}
         a['memberinfo'] = logged_member
         a['session_ok'] = 'dfrerewrew'
+        a['session_root'] = 'root'
         a['lecture'] = lecture
         a['member_lecture'] = membered_lecture
 
@@ -172,6 +179,8 @@ def product(req):
     try:
         lecture = Lecture.objects.all()
         if session_ck:
+            if req.session.get('id') == "root":
+                return render(req, 'product.html',{'lectureinfo':lecture,'session_root':'root','session_ok':'ok'})
             return render(req, 'product.html',{'lectureinfo':lecture,'session_ok':'ok'})
         else:
             return redirect('../login/')
