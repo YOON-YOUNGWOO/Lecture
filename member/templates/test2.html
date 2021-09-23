@@ -1,0 +1,20 @@
+<script>
+    function cccc()  {
+        const asdf = document.getElementById('ttestt')
+        asdf.innerTEXT = `
+        <div name='tname' id='tname' value='유럽상품2'>유럽상품</div>
+        <div name='world' id='world' value='ASIA'>ASIA</div>
+        <div name='country' id='country' value='jeju'>jeju</div>
+        `;
+    }
+    
+    var tname = document.getElementById('tname').value;
+    var world = document.getElementById('world').value;
+    var country = document.getElementById('country').value;
+    tname.oninput=function() { tname }
+    world.oninput=function() { world }
+    country.oninput=function() { country }
+</script>
+    <input type="text" class="input-group input-group-sm" name="tname" id="tname" placeholder="상품이름" value="유럽상품2" required="">
+    <input type="text" class="input-group input-group-sm" name="world" id="world" placeholder="대륙" value="EU" required="">
+    <input type="text" class="input-group input-group-sm" name="country" id="country" placeholder="나라" value="uk" required="">

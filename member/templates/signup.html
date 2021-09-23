@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <title>Y Academy</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous">
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+            integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+            crossorigin="anonymous"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+        
+    </head>
+    <style>
+        .body{
+                position: absolute;
+                top: -20px;
+                left: -20px;
+                right: -40px;
+                bottom: -40px;
+                width: auto;
+                height: auto;
+                background-image: url("/static/bk.jpg");
+                background-size: cover;
+                -webkit-filter: blur(5px);
+                z-index: 0;
+                background: #ff6e7f;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #bfe9ff, #ff6e7f);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #bfe9ff, #ff6e7f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .divider-text {
+            position: relative;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .divider-text span {
+            padding: 7px;
+            font-size: 12px;
+            position: relative;   
+            z-index: 2;
+        }
+        .divider-text:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            top: 55%;
+            left: 0;
+            z-index: 1;
+        }
+
+        .btn-facebook {
+            background-color: #405D9D;
+            color: #fff;
+        }
+        .btn-twitter {
+            background-color: #42AEEC;
+            color: #fff;
+        }
+        .container{
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function ck(){ /* 중복확인 눌렀을 때*/
+        $.post(
+            "../id_ck/",
+            {id:$("#id").val(),csrfmiddlewaretoken:document.getElementsByName("csrfmiddlewaretoken")[0].value},    
+            function (msg){
+                $("#msg").html(msg);
+            }
+        );
+    }
+    </script>
+    <body>
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card navbar-expand-lg">
+                <a href="../home" class="w3-bar-item w3-button">
+                    <b>Y Academy</b>
+                </a>
+                <!-- Float links to the right. Hide them on small screens -->
+                  <div class="w3-right w3-hide-small">
+                      <a href="../login" class="w3-bar-item w3-button" id="login_btn">Login</a>
+                      <a href="../logout" class="w3-bar-item w3-button d-none" id="logout_btn">Logout</a>
+                      <a href="../profile" class="w3-bar-item w3-button d-none" id="mypage">Mypage</a>
+                      <a href="../product" class="w3-bar-item w3-button" id="cart">Lecture</a>
+                  </div>
+            </div>
+        </div>
+        <div class = "body"></div>
+        <div class="container">
+            <hr>
+            <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                <p class="divider-text">
+                </p>
+                <form action="../signupcheck/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="id" id = "id" class="form-control" placeholder="ID" type="text" required>
+                        <button type="button" class="btn btn-primary ml-2" onclick="ck()">중복확인</button>
+                        <div id ="msg" class = "ml-3 text" style="color: red;"></div>
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="name" class="form-control" placeholder="Name" type="text" required>
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="Create password" type="password" name="password" required>
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="Repeat password" type="password" name="password_check" required>
+                    </div> <!-- form-group// -->   
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Email address" type="email" required>
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <select class="form-control" name = "gender" required>
+                            <option selected value="nopick"> gender</option>
+                            <option value="M">Man</option>
+                            <option value="W">Women</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
+                                                       
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                    </div> <!-- form-group// -->      
+                <p class="text-center">Have an account? <a href="../login/">Log In</a> </p>                                                                 
+            </form>
+            </article>
+            {% if err%}
+                <script>
+                    alert("{{err}}");
+                </script>
+            {% endif %}
+            {% if err2%}
+                <script>
+                    alert("{{err2}}");
+                </script>
+            {% endif %}
+            {% if err3%}
+                <script>
+                    alert("{{err3}}");
+                </script>
+            {% endif %}
+            
+    </body>
+</html>

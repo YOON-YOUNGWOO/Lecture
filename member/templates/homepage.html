@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <title>Y Academy</title>
+    <meta charset="UTF-8">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+        crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    
+    <style>
+        body{
+            background: #076585;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+    </style>
+    <body>
+        {% load static %}
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top" >
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card navbar-expand-lg">
+                <a href="#" class="w3-bar-item w3-button">
+                    <b>Y Academy</b>
+                </a>
+                <!-- Float links to the right. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="../login" class="w3-bar-item w3-button" id="login_btn">Login</a>
+                    <a href="../logout" class="w3-bar-item w3-button d-none" id="logout_btn">Logout</a>
+                    <a href="../profile" class="w3-bar-item w3-button d-none" id="mypage">Mypage</a>
+                    <a href="../product" class="w3-bar-item w3-button" id="cart">Lecture</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header
+            class="w3-display-container w3-content w3-wide"
+            style="max-width:1500px;"
+            id="home">
+            <img
+                class="w3-image"
+                src="{% static 'architect.jpg' %}"
+                alt="Architecture"
+                width="1500"
+                height="800">
+            <div class="w3-display-middle w3-margin-top w3-center">
+                <!--<h1 class="w3-xxlarge w3-text-white">
+                    <span class="w3-hide-small w3-text-light-grey">Architects</span></h1>-->
+            </div>
+        </header>
+        <!-- Page content -->
+        <div class="w3-content w3-padding" style="max-width:1564px">
+
+            <!-- Project Section -->
+            <div class="w3-container w3-padding-32" id="projects">
+                <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Lecture</h3>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Java</div>
+                        <img src="{% static 'java.png' %}" alt="House" style="width:100%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Python</div>
+                        <img src="{% static 'python.png' %}" alt="House" style="width:100%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Go</div>
+                        <img src="{% static 'go.png' %}" alt="House" style="width:100%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Java Script</div>
+                        <img src="{% static 'js.png' %}" alt="House" style="width:100%">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">C++</div>
+                        <img src="{% static 'cp.png' %}" alt="House" style="width:99%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">C#</div>
+                        <img src="{% static 'cshop.png' %}" alt="House" style="width:99%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">C</div>
+                        <img src="{% static 'c.png' %}" alt="House" style="width:99%">
+                    </div>
+                </div>
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Nodejs</div>
+                        <img src="{% static 'node.png' %}" alt="House" style="width:99%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if session_ok %}
+            <script>
+                $("#login_btn").addClass('d-none');
+                $("#logout_btn").removeClass('d-none');
+                $("#mypage").removeClass('d-none');
+            </script>
+        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    alert('{{message}}');
+                </script>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
