@@ -251,3 +251,13 @@ def delete_lecture(req):
 # 강의 추가
 def lecture_add(req):
     return render(req, 'lecture_add.html')
+
+# 강의 추가 눌렀을 때
+def lecture_add_plus(req):
+    sessionid = req.session.get('id')
+    try:
+        member = Member.objects.get(memberid = sessionid)
+        
+    except Exception as err:
+        print(err)
+        return redirect('../lecture_add/')
