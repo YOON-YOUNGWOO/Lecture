@@ -18,6 +18,9 @@ class Lecture(models.Model):
     lectureName=models.CharField(max_length=64, verbose_name='강의이름', null=False, unique=True)
     lectureregistered = models.DateTimeField(auto_now_add=True, verbose_name='등록 일자')
     lectureho = models.CharField(max_length=100, verbose_name="별명", null=True)
+    # 강의 등록한 사람
+    lecture_registrant = models.CharField(max_length=64, verbose_name="등록자",null=True)
+    lecture_memo = models.TextField(max_length=100,null=True, verbose_name='강의 소개', default='강의 소개')
 
 # 회원_강의
 class Member_Lecture(models.Model):
