@@ -15,8 +15,10 @@ class Member(models.Model):
 # 강의
 class Lecture(models.Model):
     lectureid=models.AutoField(primary_key=True)
+    # 강의 이름(이미지)
     lectureName=models.CharField(max_length=64, verbose_name='강의이름', null=False, unique=True)
     lectureregistered = models.DateTimeField(auto_now_add=True, verbose_name='등록 일자')
+    # 보여줄 강의 이름
     lectureho = models.CharField(max_length=100, verbose_name="별명", null=True)
     # 강의 등록한 사람
     lecture_registrant = models.CharField(max_length=64, verbose_name="등록자",null=True)
