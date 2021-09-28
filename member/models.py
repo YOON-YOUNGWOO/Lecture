@@ -11,6 +11,8 @@ class Member(models.Model):
     gender = models.CharField(max_length=1, verbose_name='성별', choices=GENDERS, default='M')
     memberemail = models.EmailField(max_length=128, verbose_name='사용자 이메일', null=False)
     memberprofile =models.TextField(max_length=100, null=True, verbose_name='자기소개', default='자기소개를 작성해보세요^_^')
+    def __str__(self):
+        return self.membername
 
 # 강의
 class Lecture(models.Model):
@@ -22,8 +24,9 @@ class Lecture(models.Model):
     lectureho = models.CharField(max_length=100, verbose_name="별명", null=True)
     # 강의 등록한 사람
     lecture_registrant = models.CharField(max_length=64, verbose_name="등록자",null=True)
-    lecture_memo = models.TextField(max_length=100,null=True, verbose_name='강의 소개', default='강의 소개')
-
+    lecture_memo = models.TextField(max_length=1000,null=True, verbose_name='강의 소개', default='강의 소개')
+    def __str__(self):
+        return self.lectureho
 # 회원_강의
 class Member_Lecture(models.Model):
     id = models.AutoField(primary_key=True)

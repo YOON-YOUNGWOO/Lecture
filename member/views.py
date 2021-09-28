@@ -134,14 +134,13 @@ def profile(req):
         a = {}
         a['memberinfo'] = logged_member
         a['session_ok'] = 'dfrerewrew'
-        a['session_root'] = 'root'
+        #a['session_root'] = 'root'
         a['lecture'] = lecture
         a['member_lecture'] = membered_lecture
 
         index = []
         for plus in membered_lecture:
             index.append(plus.lecture_id.lectureid)
-        print(index)
         a['index'] = index
 
         if session_ck:
@@ -199,8 +198,6 @@ def class_plus(req):
             messages.error(req, '이미 등록된 강의입니다.')
             return redirect('../product')
         else:
-            print(member.memberid) # qq
-            print(product.lectureid) # 1
             ml_plus = Member_Lecture(member_id=member,lecture_id=product)
             ml_plus.save()
             messages.info(req, '신청 완료')
