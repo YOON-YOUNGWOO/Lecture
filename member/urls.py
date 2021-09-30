@@ -21,5 +21,6 @@ urlpatterns = [
     path('ck_box/', views.ck_box, name="ck_box"),
     path('ck_box2/', views.ck_box2, name="ck_box2"),
     path('delete_lecture/',views.delete_lecture, name="delete_lecture"),
-    path('lecture_add/',views.lecture_add, name="lecture_add")
+    path('lecture_add/',views.lecture_add, name="lecture_add"),
+    path('cart/',views.cart, name="cart")
 ]

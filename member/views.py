@@ -32,10 +32,14 @@ def login_check(req):
 
 # 로그아웃
 def logout(req):
-    if req.session.pop('id'):
+    try:
+        if req.session.pop('id'):
+            return redirect('../home/')
+        else:
+            return render(req, 'homepage.html',{'session_login':'로그아웃으로 세션 x'})
+    except Exception as err:
+        print(err)
         return redirect('../home/')
-    else:
-        return render(req, 'homepage.html',{'session_login':'로그아웃으로 세션 x'})
 
 # 장바구니 페이지
 def cart(req):
