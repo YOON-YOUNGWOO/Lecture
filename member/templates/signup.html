@@ -84,14 +84,14 @@
     </style>
     <script>
         function ck(){ /* 중복확인 눌렀을 때*/
-        $.post(
-            "../id_ck/",
-            {id:$("#id").val(),csrfmiddlewaretoken:document.getElementsByName("csrfmiddlewaretoken")[0].value},    
-            function (msg){
-                $("#msg").html(msg);
-            }
-        );
-    }
+            $.post(
+                "../id_ck/",
+                {id:$("#id").val(),csrfmiddlewaretoken:document.getElementsByName("csrfmiddlewaretoken")[0].value},    
+                function (msg){
+                    $("#msg").html(msg);
+                }
+            );
+        }
     </script>
     <body>
         <div class="w3-top">

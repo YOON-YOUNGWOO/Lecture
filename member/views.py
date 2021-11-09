@@ -113,8 +113,6 @@ def profile_edit(req):
         logged_member = Member.objects.get(memberid=session_ok)
         if logged_member:
             if pw1 != pw2:
-                if req.session.get('id') == "root":
-                    return render(req, 'editinfo.html',{'err':'비밀번호가 틀립니다.', 'memberinfo':logged_member,'session_root':'root','session_ok':'ok'})
                 return render(req, 'editinfo.html',{'err':'비밀번호가 틀립니다.', 'memberinfo':logged_member,'session_ok':'ok'})
             else:
                 logged_member.memberpw = pw1
@@ -237,11 +235,8 @@ def ck_box2(req):
 def delete_lecture(req):
     lectureid = int(req.POST.get('lectureid'))
     sessionid = req.session.get('id')
-    print(lectureid)
-    print(sessionid)
     try:
         mem_lec = Member_Lecture.objects.get(member_id = sessionid,lecture_id = lectureid)
-        print(mem_lec)
         if mem_lec:
             mem_lec.delete()
             return HttpResponse('삭제 완료')

@@ -101,7 +101,6 @@
             );
         }
         function del_lecture(e){
-            console.log($(e).attr('value'));
             $.post(
                 "../delete_lecture/",
                 {lectureid:$(e).attr('value'),csrfmiddlewaretoken:document.getElementsByName("csrfmiddlewaretoken")[0].value},
